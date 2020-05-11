@@ -12,10 +12,9 @@ const Wrapper = styled.div`
 function Location({ city, country }) {
   return (
     <Wrapper>
-      <H1 text={city} type="" />
+      <H1 text={city} />
       <H3 text={country} />
     </Wrapper>
   );
 }
 export default Location;
-export { H1, H3 };

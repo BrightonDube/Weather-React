@@ -2,12 +2,17 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function H1({ text, type }) {
-  const Wrapper = styled.h1`
-    font-family: ${(props) =>
-      props.temperature
-        ? '"Fira Sans", sans-serif'
-        : '"Varela Round", sans-serif'};
-  `;
-  return <Wrapper temperature={type}>{text} </Wrapper>;
+const Wrapper = styled.h1`
+  font-size: ${(props) => (props.size ? "3rem" : "2.2rem")};
+  font-family: ${(props) =>
+    props.temperature
+      ? '"Fira Sans", sans-serif'
+      : '"Varela Round", sans-serif'};
+`;
+export default function H1({ text, type, big }) {
+  return (
+    <Wrapper size={big} temperature={type}>
+      {text}
+    </Wrapper>
+  );
 }
