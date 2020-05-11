@@ -1,24 +1,19 @@
 //jshint esversion: 9
 import React from "react";
 import styled from "styled-components";
+import H1 from "./H1";
+import H3 from "./H3";
 
 const Wrapper = styled.div`
   text-align: center;
-`;
-const H1 = styled.h1`
-  @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Roboto:wght@400;500&family=Varela+Round&display=swap");
-  font-family: ${(props) =>
-    props.temperature ? '"Fira Sans"' : '"Varela Round"'};
-`;
-const H3 = styled.h3`
-  font-family: "Varela Round", sans-serif;
+  font-family: "Montserrat", sans-serif;
 `;
 
-function Location() {
+function Location({ city, country }) {
   return (
     <Wrapper>
-      <H1>Sidney</H1>
-      <H3>AU</H3>
+      <H1 text={city} type="" />
+      <H3 text={country} />
     </Wrapper>
   );
 }
