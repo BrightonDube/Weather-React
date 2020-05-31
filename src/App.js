@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 function App() {
   //Logic
   const API_KEY = "2b807d1ac4eecb9fa1025ea5f19c7f47";
-  const [city, setCity] = useState("Bulawayo");
+  const [city, setCity] = useState("Johannesburg");
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 
   //Fetch posts from subreddit and store them in state
@@ -39,7 +39,6 @@ function App() {
       const response = await axios(url);
       setIsLoading(true);
       const weather = await response.data;
-      setIsLoading(false);
       setData({
         city: weather.name,
         country: weather.sys.country,
@@ -47,6 +46,7 @@ function App() {
         temp: Math.round(weather.main.temp),
         description: weather.weather[0].description,
       });
+      setIsLoading(false);
     }
     getWeather().catch((err) => console.log(err));
   }, [url]);
@@ -65,13 +65,6 @@ function App() {
         city={data.city}
         country={data.country}
         description={data.description}
-      />
-      <WeatherCard
-        temp={20}
-        city="Wellington"
-        icon={iconUrl}
-        country={"NZ"}
-        description={`Clouds`}
       />
     </Wrapper>
   );
